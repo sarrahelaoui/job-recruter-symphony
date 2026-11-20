@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Polytech Job{% endblock %}</title>
+
+        {% block javascripts %}
+         {% endblock %}
+       {% block stylesheets %}
+        <link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+crossorigin="anonymous"/>
+<link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}" />
+        {% endblock %}
+
+    </head>
+    <body>
+    <img src="{{asset('image/myPic.jpg')}}" title="my image" alt="My image"
+width="150" height="150">
+    <h1 class="text-center">{%block titre%}Bienvenu a polytech job search{%endblock%}</h1>
+        {% block body %}{% endblock %}
+    </body>
+</html>

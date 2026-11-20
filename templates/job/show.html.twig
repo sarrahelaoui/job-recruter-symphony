@@ -1,0 +1,43 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails du Job{% endblock %}
+
+{% block body %}
+
+<h2>Détails du Job</h2>
+
+<p><strong>Type :</strong> {{ job.type }}</p>
+<p><strong>Entreprise :</strong> {{ job.company }}</p>
+<p><strong>Description :</strong> {{ job.description }}</p>
+<p><strong>Email :</strong> {{ job.email }}</p>
+
+<h3>Liste des candidatures</h3>
+
+<table class="table table-hover table-striped">
+    <thead>
+        <tr>
+            <th>Nom du candidat</th>
+            <th>Contenu</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for candidat in listCandidatures %}
+            <tr>
+                <td>{{ candidat.candidat }}</td>
+                <td>{{ candidat.contenu }}</td>
+                <td>{{ candidat.date|date('d/m/Y') }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">Aucune candidature trouvée.</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ path('add_candidat') }}">Ajouter une candidature</a>
+
+{% endblock %}
